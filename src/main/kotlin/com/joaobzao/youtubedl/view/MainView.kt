@@ -4,6 +4,7 @@ import com.joaobzao.youtubedl.app.Styles
 import com.joaobzao.youtubedl.controller.YoutubeDownloadController
 import javafx.beans.property.SimpleBooleanProperty
 import javafx.beans.property.SimpleStringProperty
+import javafx.geometry.Pos
 import tornadofx.*
 
 class MainView : View("Youtube downloader") {
@@ -14,25 +15,31 @@ class MainView : View("Youtube downloader") {
     }
 
     override val root = form {
-        label(title) {
-            addClass(Styles.heading)
+        hbox(alignment = Pos.CENTER) {
+            label(title) {
+                addClass(Styles.heading)
+                whenDocked { requestFocus() }
+            }
         }
         addClass(Styles.loginScreen)
         fieldset {
-            field("Youtube URL") {
+            field("Youtube URL:") {
                 textfield(model.youtubeUrl) {
                     required()
-                    whenDocked { requestFocus() }
+                    promptText = "insert youtube url here..."
+                    //whenDocked { requestFocus() }
                 }
             }
         }
 
-        button("Download") {
-            isDefaultButton = true
+        hbox(alignment = Pos.BASELINE_RIGHT) {
+            button("Download") {
+                isDefaultButton = true
 
-            action {
-                model.commit {
-                    youtubeDownloadController.download(model.youtubeUrl.value)
+                action {
+                    model.commit {
+                        youtubeDownloadController.download(model.youtubeUrl.value)
+                    }
                 }
             }
         }

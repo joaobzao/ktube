@@ -1,5 +1,6 @@
 package com.joaobzao.youtubedl.app
 
+import javafx.geometry.Pos
 import javafx.scene.text.FontWeight
 import tornadofx.Stylesheet
 import tornadofx.box
@@ -23,6 +24,7 @@ class Styles : Stylesheet() {
             padding = box(15.px)
             vgap = 7.px
             hgap = 10.px
+            minWidth = 800.px
         }
     }
 }
