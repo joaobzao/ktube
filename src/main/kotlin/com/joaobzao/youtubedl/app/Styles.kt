@@ -11,6 +11,7 @@ class Styles : Stylesheet() {
     companion object {
         val heading by cssclass()
         val loginScreen by cssclass()
+        val progressBar by cssclass()
     }
 
     init {
@@ -25,6 +26,11 @@ class Styles : Stylesheet() {
             vgap = 7.px
             hgap = 10.px
             minWidth = 800.px
+        }
+
+        progressBar {
+            //padding = box(15.px)
+            minWidth = 500.px
         }
     }
 }

@@ -6,8 +6,10 @@ import javafx.beans.property.SimpleBooleanProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.geometry.Pos
 import tornadofx.*
+import java.awt.Label
 
 class MainView : View("Youtube downloader") {
+    private val taskStatus: TaskStatus by inject()
     private val youtubeDownloadController: YoutubeDownloadController by inject()
 
     private val model = object : ViewModel() {
@@ -32,13 +34,21 @@ class MainView : View("Youtube downloader") {
             }
         }
 
+        vbox(4.0) {
+            addClass(Styles.progressBar)
+            progressbar(taskStatus.progress) {
+                visibleWhen { taskStatus.running }
+            }
+            label(taskStatus.message)
+        }
+
         hbox(alignment = Pos.BASELINE_RIGHT) {
             button("Download") {
                 isDefaultButton = true
 
                 action {
                     model.commit {
-                        youtubeDownloadController.download(model.youtubeUrl.value)
+                        youtubeDownloadController.download(model.youtubeUrl.value, taskStatus)
                     }
                 }
             }
