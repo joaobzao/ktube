@@ -23,6 +23,7 @@ class MainView : View("Youtube downloader") {
                 whenDocked { requestFocus() }
             }
         }
+
         addClass(Styles.loginScreen)
         fieldset {
             field("Youtube URL:") {

@@ -25,8 +25,5 @@ class YoutubeDownloadController : Controller() {
             println("🌍 ${response.out}")
             println("🌍 ${response.directory}")
         }
-
-
-
     }
 }
