@@ -6,9 +6,9 @@ This is a **work-in-progress** Youtube video download desktop app.
 
 ### Product
 
-- [ ] Download single video from youtube, in `.mp4` format only.
-- [ ] Choose destination location.
-- [ ] Show download progress.
+- [x] Download single video from youtube, in `.mp4` format only.
+- [x] Choose destination location.
+- [x] Show download progress.
 - [ ] Choose between multiple formats.
 - [ ] Recent download list.
 - [ ] Download playlists
